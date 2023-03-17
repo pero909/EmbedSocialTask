@@ -32,6 +32,22 @@ public class Review {
         return getId().equals(review.getId());
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getReviewText() {
+        return reviewText;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public LocalDateTime getReviewCreatedOnDate() {
+        return reviewCreatedOnDate;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(getId());

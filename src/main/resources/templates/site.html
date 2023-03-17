@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form>
+<form th:method="GET" th:action="@{/filter}">
 <label>Order By Rating</label>
 <br>
 <select name="orderByRating" id="ratingOrder">
@@ -48,5 +48,24 @@
 
 <button type="submit">Filter</button>
 </form>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Text</th>
+        <th>Rating</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="review: ${reviews}">
+    <td th:text="${review?.getId()}"></td>
+    <td th:text="${review?.getReviewText()}"></td>
+    <td th:text="${review?.getRating()}"></td>
+    <td th:text="${review?.getReviewCreatedOnDate()}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
